@@ -19,7 +19,6 @@ function LandingPage(){
 
     return(
        
-
         <div id="homeNav">
     <Header as='h2' icon>
         <Icon name='book'/>
@@ -92,9 +91,6 @@ function LandingPage(){
     </Header>
     </div>
 
-  
-
-  
     )
 }
 
