@@ -1,15 +1,13 @@
 import React from 'react';
 
 function LandingPage(){
-
-
-
+   
+debugger; 
 
     return(
-        <div>
-            <p>
-            HELLO.
-            </p>
+        <div>  
+            LANDING PAGE
+            
         </div>
     )
 }

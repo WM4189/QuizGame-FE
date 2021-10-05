@@ -1,18 +1,15 @@
 import React from 'react';
 
-function Subject(){
-
-   
+function QuestionItem(){
 
 
-      
 
 
     return (
         <div>
-           SUBJECT
+            QUESTION ITEM
         </div>
     )
 }
 
-export default Subject;
+export default QuestionItem;
