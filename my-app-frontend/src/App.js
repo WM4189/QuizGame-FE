@@ -2,6 +2,12 @@ import './App.css';
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 import Subject from './components/Subject.js';
+import Html from './components/Html.js';
+import Css from './components/Css.js';
+import JavaScript from './components/JavaScript';
+import Python from './components/Python';
+import Java from './components/Java';
+import Cplus from './components/Cplus';
 import QuestionForm from './components/QuestionForm.js';
 import LandingPage from './components/LandingPage.js';
 // import QuestionList from './components/QuestionForm.js'
@@ -52,11 +58,29 @@ function App() {
     .then(data => console.log(data))
   }
   
-  debugger;
+  // debugger;
 
   return (
     <div className="App">
       <Switch>
+      <Route path="/html">
+        <Html />
+        </Route>
+        <Route path="/css">
+        <Css />
+        </Route>
+        <Route path="/javaScript">
+        <JavaScript />
+        </Route>
+        <Route path="/python">
+        <Python />
+        </Route>
+        <Route path="/java">
+        <Java />
+        </Route>
+        <Route path="/cplus">
+        <Cplus />
+        </Route>
         <Route path="/subjects">
         <Subject />
         </Route>

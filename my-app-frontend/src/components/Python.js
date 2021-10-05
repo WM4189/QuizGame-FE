@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Subject(){
+function Python(){
 
    
 
@@ -8,9 +8,9 @@ function Subject(){
       
     return (
         <div>
-           SUBJECT
+           Python
         </div>
     )
 }
 
-export default Subject;
+export default Python;

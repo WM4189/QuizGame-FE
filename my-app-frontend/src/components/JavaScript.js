@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Subject(){
+function JavaScript(){
 
    
 
@@ -8,9 +8,9 @@ function Subject(){
       
     return (
         <div>
-           SUBJECT
+           JavaScript
         </div>
     )
 }
 
-export default Subject;
+export default JavaScript;

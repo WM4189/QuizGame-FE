@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Subject(){
+function Cplus(){
 
    
 
@@ -8,9 +8,9 @@ function Subject(){
       
     return (
         <div>
-           SUBJECT
+           C++
         </div>
     )
 }
 
-export default Subject;
+export default Cplus;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Subject(){
+function Java(){
 
    
 
@@ -8,9 +8,9 @@ function Subject(){
       
     return (
         <div>
-           SUBJECT
+           Java
         </div>
     )
 }
 
-export default Subject;
+export default Java;

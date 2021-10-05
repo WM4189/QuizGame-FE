@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Subject(){
+function Css(){
 
    
 
@@ -8,9 +8,9 @@ function Subject(){
       
     return (
         <div>
-           SUBJECT
+           CSS
         </div>
     )
 }
 
-export default Subject;
+export default Css;
