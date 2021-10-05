@@ -7,7 +7,9 @@ function Subject(){
         .then(r => r.json())
         .then(subject => console.log(subject))
       }
-    
+
+
+
       const getSubject = (id) => {
         fetch(`http://localhost:9292/subject/${id}`)
         .then(resp => resp.json())
