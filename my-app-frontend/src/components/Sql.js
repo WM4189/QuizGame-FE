@@ -13,15 +13,13 @@ const linkStyles = {
     color: "white"
   };
 
-function Html({questions, setQuestions, points, handleAnswer, setPoints}){
-
+function Sql({questions, setQuestions, points, handleAnswer, setPoints}){
     const [show, setShow ] = useState(false)
 
     useEffect(() => {
-        fetch("http://localhost:9292/subject/2")
+        fetch("http://localhost:9292/subject/5")
         .then((r) => r.json())
         .then((data) => {setQuestions(data.questions)
-        
       })
     }, []);
 
@@ -45,7 +43,7 @@ function Html({questions, setQuestions, points, handleAnswer, setPoints}){
           handleAnswer={handleAnswer}
         />
       ));
-      
+
     return (
         <>
         <NavLink
@@ -63,7 +61,7 @@ function Html({questions, setQuestions, points, handleAnswer, setPoints}){
 		  Add Question
 		</NavLink>
         <section>
-            <b><h1>HTML Quiz</h1></b>
+            <b><h1>SQL Quiz</h1></b>
             <h3><ul>{questionItems}</ul></h3>
             <button className="white_button" 
             onClick={()=> setShow(show => !show)}>Submit Quiz</button>
@@ -74,6 +72,4 @@ function Html({questions, setQuestions, points, handleAnswer, setPoints}){
         </>
     )
 }
-
-
-export default Html;
+export default Sql;

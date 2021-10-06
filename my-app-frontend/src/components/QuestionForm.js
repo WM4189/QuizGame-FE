@@ -32,6 +32,13 @@ function QuestionForm(){
     const answers = [formData.answer1, formData.answer2, formData.answer3, formData.answer4]
     const stringAnswer = answers[index]
 
+
+      
+    let subject_index = formData.subject_id
+    // parseInt((Math.floor(subject_index += formData.subject_id )))
+    const subjectId = (parseInt(subject_index)+1)
+    // console.log(subjectId)
+
       function handleChange(event) { 
         setFormData({  
           ...formData,
@@ -54,11 +61,11 @@ function QuestionForm(){
             answer3: formData.answer3,
             answer4: formData.answer4,   
             correct_answer: stringAnswer,
-            subject_id: formData.subject_id
+            subject_id: subjectId
           }),
         });
         setFormData(defaultState)
-        history.push("/javaScript")
+        history.goBack()
       }
     
        
@@ -143,6 +150,24 @@ function QuestionForm(){
               <option value="1">{formData.answer2}</option>
               <option value="2">{formData.answer3}</option>
               <option value="3">{formData.answer4}</option>
+            </select>
+            </label>
+            <br></br>
+            <label>
+              Subject:
+            <select
+              name="subject_id"
+              value={formData.subject_id}
+              onChange={handleChange}
+              id="subject_id"
+            >
+              <option value="0">JavaScript</option>
+              <option value="1">HTML</option>
+              <option value="2">CSS</option>
+              <option value="3">Python</option>
+              <option value="4">SQL</option>
+              <option value="5">Java</option>
+              <option value="6">C++</option>
             </select>
           </label>
           <button type="submit">Add Question</button>

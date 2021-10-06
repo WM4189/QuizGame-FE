@@ -68,6 +68,16 @@ function LandingPage(){
 		  >
 		  Python
 		</NavLink>
+		<NavLink
+			to="/sql"
+			exact
+			style={linkStyles}
+			activeStyle={{
+			  background: "blue",
+			}}
+		  >
+		  SQL
+		</NavLink>
         <NavLink
 			to="/java"
 			exact

@@ -12,7 +12,7 @@ const linkStyles = {
     textDecoration: "none",
     color: "white"
   };
-// 
+
 
 function JavaScript({questions, setQuestions, points, handleAnswer, setPoints}){
 // const {prompt, answer1, answer2, answer3, answer4, correct_answer, id} = questions 

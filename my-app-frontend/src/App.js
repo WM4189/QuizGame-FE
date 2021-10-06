@@ -6,6 +6,7 @@ import Html from './components/Html.js';
 import Css from './components/Css.js';
 import JavaScript from './components/JavaScript';
 import Python from './components/Python';
+import Sql from './components/Sql';
 import Java from './components/Java';
 import Cplus from './components/Cplus';
 import QuestionForm from './components/QuestionForm.js';
@@ -77,10 +78,18 @@ if(answer === questions[questionindex].correct_answer){
     <div className="App">
       <Switch>
       <Route path="/html">
-        <Html />
+        <Html handleAnswer={handleAnswer} 
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
         </Route>
         <Route path="/css">
-        <Css />
+        <Css handleAnswer={handleAnswer} 
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
         </Route>
         <Route path="/javaScript">
         <JavaScript handleAnswer={handleAnswer} 
@@ -90,13 +99,32 @@ if(answer === questions[questionindex].correct_answer){
         setPoints={setScore} />
         </Route>
         <Route path="/python">
-        <Python />
+        <Python handleAnswer={handleAnswer} 
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
+        </Route>
+        <Route path="/sql">
+        <Sql handleAnswer={handleAnswer} 
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
         </Route>
         <Route path="/java">
-        <Java />
+        <Java handleAnswer={handleAnswer} 
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
         </Route>
         <Route path="/cplus">
-        <Cplus />
+        <Cplus handleAnswer={handleAnswer} 
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
         </Route>
         <Route path="/subjects">
         <Subject />
