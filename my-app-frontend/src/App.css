@@ -36,3 +36,80 @@
     transform: rotate(360deg);
   }
 }
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 500px;
+  background-color: #fff;
+}
+
+.modal-header, .modal-footer{
+  padding: 10px;
+}
+
+.modal-title{
+  margin: 0;
+}
+
+.modal-body{
+  padding: 10px, 
+  border-top 1px solid white;
+  border-bottom: 1px solid white;
+}
+
+.white_button{
+  margin: auto;
+  display: flex ;
+  position: relative;
+  justify-content: center;
+  width: fit-content;
+  height: 2rem;
+  border-radius: 10px;
+  background: none;
+  color: rgb(25, 25, 25);
+  font-weight: 600;
+  border: 2px solid gray;
+  cursor: pointer;
+  outline: none;
+}
+
+.delete_button{
+  font-size: 12px;
+  margin: auto;
+  display: grid;
+  position: relative;
+  width: 100px;
+  height: 2rem;
+  background: black;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  top: 18px;
+}
+
+.selected_answer{
+  margin: auto;
+  display: flex ;
+  position: relative;
+  justify-content: center;
+  width: fit-content;
+  height: 2rem;
+  border-radius: 10px;
+  background: #f7f720c2;
+  color: rgb(25, 25, 25);
+  font-weight: 600;
+  border: 2px solid gray;
+  cursor: pointer;
+  outline: none;
+}

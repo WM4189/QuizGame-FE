@@ -2,12 +2,9 @@ import React, { useEffect, useState } from "react";
 // import { useHistory } from "react-router-dom";
 import QuestionItem from './QuestionItem';
 
-
-function QuestionList(){
+function QuestionList({handleAnswer}){
 // const history = useHistory();
 const [questions, setQuestions] = useState([]);
-
-
 useEffect(() => {
     fetch("http://localhost:9292/questions/8")
       .then((r) => r.json())
@@ -15,15 +12,16 @@ useEffect(() => {
         setQuestions(questions);
       });
   }, []);
-  console.log(questions)
 
-//   const {prompt, answer1, answer2, answer3, answer4, correct_answer, id} = questions
-//     const answers = [answer1, answer2, answer3, answer4]
-//     const options = answers.map((answer, index) => (
-//         <option key={index} value={index}>
-//           {answer}
-//         </option>
-//     ));
+
+  const {prompt, answer1, answer2, answer3, answer4, correct_answer, id} = questions
+  const answers = [answer1, answer2, answer3, answer4]
+    
+    // const options = answers.map((answer, index) => (
+    //     <option key={index} value={index}>
+    //       {answer}
+    //     </option>
+    // ));
 
 
   function handleDeleteClick(id) {
@@ -36,6 +34,7 @@ useEffect(() => {
         setQuestions(updatedQuestions);
       });
   }
+
 
 
 //   function handleAnswerChange(id, correct_answer) {
@@ -57,20 +56,26 @@ useEffect(() => {
 //   }
 
 
-  const questionItems = questions.map((q) => (
+
+  const questionItems = questions.map((q, index) => (
     <QuestionItem
-      key={q.id}
-      question={q}
-      onDeleteClick={handleDeleteClick}
-    //   onAnswerChange={handleAnswerChange}
+    key={q.id}
+    questionindex={index}
+    question={q}
+    onDeleteClick={handleDeleteClick}
+    handleAnswer={handleAnswer}
+  
     />
   ));
 
   return (
+
     <section>
       <h1>Edit Quiz Questions</h1>
       <ul>{questionItems}</ul>
     </section>
+
+    
   );
 }
 

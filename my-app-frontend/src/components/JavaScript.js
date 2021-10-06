@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import QuestionItem from "./QuestionItem";
 import { NavLink } from "react-router-dom";
+import Modal from "./Modal.js";
 
 const linkStyles = {
     display: "inline-block",
@@ -11,18 +12,21 @@ const linkStyles = {
     textDecoration: "none",
     color: "white"
   };
+// 
 
-
-function JavaScript(){
-    const [questions, setQuestions] = useState([]);
+function JavaScript({ questions, setQuestions, points, handleAnswer, setPoints}){
+// const {prompt, answer1, answer2, answer3, answer4, correct_answer, id} = questions 
+//this is to show the modal; assuming we will de
+const [show, setShow ] = useState(false)
 
     useEffect(() => {
         fetch("http://localhost:9292/subject/8")
         .then((r) => r.json())
-        .then((questions) => setQuestions(questions.questions))
-    }, []);
+        .then((data) => {setQuestions(data.questions)
+        console.log(data.questions)})
+    }, [setQuestions]);
   
-
+    
 
   function handleDeleteClick(id) {
     fetch(`http://localhost:9292/question/${id}`, {
@@ -44,17 +48,16 @@ function JavaScript(){
 //   }
 //   getSubject(8)
 
-
-const questionItems = questions.map((q) => (
-    <QuestionItem
-      key={q.id}
-      question={q}
-      onDeleteClick={handleDeleteClick}
-    //   onAnswerChange={handleAnswerChange}
-    />
-  ));
-
-      
+const questionItems = questions.map((q, index) => (
+  <QuestionItem
+    key={q.id}
+    question={q}
+    questionindex={index}
+    onDeleteClick={handleDeleteClick}
+    handleAnswer={handleAnswer}
+  />
+));
+ 
     return (
         <>
         <NavLink
@@ -80,6 +83,9 @@ const questionItems = questions.map((q) => (
         <section>
             <b><h1>JavaScript Quiz</h1></b>
             <h3><ul>{questionItems}</ul></h3>
+            <button className="white_button" onClick={()=> setShow(true)}>Submit Quiz</button>
+            <Modal onClose={()=> {setShow(false)
+                                  setPoints(0)}} show={show} points={points}/>
         </section>
         </>
     )

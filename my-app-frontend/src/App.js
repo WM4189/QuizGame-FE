@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import Subject from './components/Subject.js';
 import Html from './components/Html.js';
@@ -14,6 +14,17 @@ import QuestionList from './components/QuestionList';
 
 
 function App() {
+  const [questions, setQuestions] = useState([]);
+  const [score, setScore] = useState(0);
+  // console.log(questions)
+  
+  //I think the number is behind, you might have to mess with that. im sure easy fix sry 
+const handleAnswer = (answer, questionindex) => {
+if(answer === questions[questionindex].correct_answer){
+  setScore(score + 1)
+}
+console.log(score)
+}
 
 //   const updateQuestion = (formData, id) => {
 //     const {prompt, answer1, answer2, answer3, answer4, correct_answer, subject_id} = formData
@@ -71,7 +82,11 @@ function App() {
         <Css />
         </Route>
         <Route path="/javaScript">
-        <JavaScript />
+        <JavaScript handleAnswer={handleAnswer} q
+        questions={questions}
+        setQuestions={setQuestions} 
+        points={score} 
+        setPoints={setScore} />
         </Route>
         <Route path="/python">
         <Python />
@@ -89,7 +104,7 @@ function App() {
           <QuestionForm /> 
         </Route>
         <Route path="/questionList">
-          <QuestionList /> 
+          <QuestionList handleAnswer={handleAnswer} setQuestions={setQuestions} questions={questions}/> 
         </Route>
         <Route exact path='/'>
         <LandingPage />
