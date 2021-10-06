@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 
-function Button({handleAnswer, answer, index, questionindex}){
-const [isActive, setActive] = useState(true)
+
+
+
+function Button({ handleAnswer, answer, index, questionindex}){
+    // reset, setReset, points,
+
+    const [isActive, setActive] = useState(true)
 
 
 function toggleClass(){
-    setActive(!isActive);
+    setActive(isActive => !isActive);
     console.log("THIS IS WORKING")
+    
 }
 
 
-
     return(
-        <button 
+        <button
+        id="the Button" 
         className= {isActive ? "white_button" : "selected_answer"}
         key={index} 
         value={index}

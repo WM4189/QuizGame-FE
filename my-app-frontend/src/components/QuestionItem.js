@@ -1,8 +1,22 @@
 import React from 'react';
 import Button from './Button.js'
-function QuestionItem({question, onDeleteClick, questionindex, handleAnswer}){
-   
 
+const linkStyles = {
+    display: "inline-block",
+    width: "100px",
+    padding: "2.5px",
+    margin: "0 3px 3px",
+    background: "black",
+    textDecoration: "none",
+    color: "white",
+    fontSize: "15px"
+  };
+
+
+function QuestionItem({questionTotal, question, onDeleteClick, questionindex, handleAnswer}){
+    // reset, setReset, points,
+    
+    
 const {prompt, answer1, answer2, answer3, answer4, correct_answer, id} = question
 const answers = [answer1, answer2, answer3, answer4]
 
@@ -14,6 +28,10 @@ const buttons = answers.map((answer, index) => (
     handleAnswer={handleAnswer} 
     answer={answer} 
     questionindex={questionindex}
+    
+    // points={points}
+    // reset={reset}
+    // setReset={setReset}
     />
     ));
  
@@ -24,8 +42,9 @@ const buttons = answers.map((answer, index) => (
 
     return (
         <li>
-            <h3>Question {id - 7}:</h3>
-            <b><h4>{prompt}</h4></b>
+            {/* <h4>Question {id}:</h4> */}
+            
+            <b><h2>{prompt}</h2></b>
             <label>
                 <h5><em> Choose Your Answer:</em></h5>
                 {/*  */}
@@ -35,7 +54,7 @@ const buttons = answers.map((answer, index) => (
                 {/* </select> */}
                 
             </label>
-            <button className='delete_button'onClick={handleDeleteClick}>Delete Question</button>
+            <button style={linkStyles} className='delete_button'onClick={handleDeleteClick}>Delete</button>
         </li>
     )
 }

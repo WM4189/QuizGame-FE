@@ -24,16 +24,21 @@ function QuestionForm(){
         answer3: "",
         answer4: "",
         correct_answer: "",
-        subject_id: 8
+        subject_id: 1
       }
     const [formData, setFormData] = useState(defaultState);
 
-      function handleChange(event) {
-        setFormData({
+    const index = formData.correct_answer
+    const answers = [formData.answer1, formData.answer2, formData.answer3, formData.answer4]
+    const stringAnswer = answers[index]
+
+      function handleChange(event) { 
+        setFormData({  
           ...formData,
           [event.target.name]: event.target.value,
         });
       }
+
 
       function handleSubmit(event) {
         event.preventDefault();
@@ -48,7 +53,7 @@ function QuestionForm(){
             answer2: formData.answer2,
             answer3: formData.answer3,
             answer4: formData.answer4,   
-            correct_answer: formData.correct_answer,
+            correct_answer: stringAnswer,
             subject_id: formData.subject_id
           }),
         });
@@ -56,7 +61,7 @@ function QuestionForm(){
         history.push("/javaScript")
       }
     
-
+       
     return(
         <div>
 
@@ -121,8 +126,15 @@ function QuestionForm(){
           </label>
           <label>
             Correct Answer:
+            {/* <input
+              type="text"
+              name="correct_answer"
+              value={formData.correct_answer}
+              onChange={handleChange}
+              id="answer"
+            /> */}
             <select
-              name="correctIndex"
+              name="correct_answer"
               value={formData.correct_answer}
               onChange={handleChange}
               id="answer"

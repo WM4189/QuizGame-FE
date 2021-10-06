@@ -84,7 +84,11 @@
   outline: none;
 }
 
-.delete_button{
+button:hover{
+  background-color: #f7f720c2;
+}
+
+/* .delete_button{
   font-size: 12px;
   margin: auto;
   display: grid;
@@ -96,7 +100,7 @@
   color: white;
   cursor: pointer;
   top: 18px;
-}
+} */
 
 .selected_answer{
   margin: auto;
@@ -113,3 +117,4 @@
   cursor: pointer;
   outline: none;
 }
+

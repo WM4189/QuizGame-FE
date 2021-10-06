@@ -17,13 +17,14 @@ function App() {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
   // console.log(questions)
+
   
   //I think the number is behind, you might have to mess with that. im sure easy fix sry 
 const handleAnswer = (answer, questionindex) => {
 if(answer === questions[questionindex].correct_answer){
   setScore(score + 1)
 }
-console.log(score)
+
 }
 
 //   const updateQuestion = (formData, id) => {
@@ -82,7 +83,7 @@ console.log(score)
         <Css />
         </Route>
         <Route path="/javaScript">
-        <JavaScript handleAnswer={handleAnswer} q
+        <JavaScript handleAnswer={handleAnswer} 
         questions={questions}
         setQuestions={setQuestions} 
         points={score} 
