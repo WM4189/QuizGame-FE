@@ -19,12 +19,13 @@ function JavaScript({ questions, setQuestions, points, handleAnswer, setPoints})
 //this is to show the modal; assuming we will de
 const [show, setShow ] = useState(false)
 
+
     useEffect(() => {
         fetch("http://localhost:9292/subject/8")
         .then((r) => r.json())
         .then((data) => {setQuestions(data.questions)
         console.log(data.questions)})
-    }, [setQuestions]);
+    }, []);
   
     
 
@@ -83,9 +84,11 @@ const questionItems = questions.map((q, index) => (
         <section>
             <b><h1>JavaScript Quiz</h1></b>
             <h3><ul>{questionItems}</ul></h3>
-            <button className="white_button" onClick={()=> setShow(true)}>Submit Quiz</button>
-            <Modal onClose={()=> {setShow(false)
-                                  setPoints(0)}} show={show} points={points}/>
+            <button className="white_button" 
+            onClick={()=> setShow(true)}>Submit Quiz</button>
+            <Modal onClose={()=> {setShow(false);
+                                  setPoints(0);
+                                  }} show={show} points={points}/>
         </section>
         </>
     )
