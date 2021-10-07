@@ -32,9 +32,6 @@ function LandingPage(){
 			to="/html"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  HTML
 		</NavLink>
@@ -42,9 +39,6 @@ function LandingPage(){
 			to="/css"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  CSS
 		</NavLink>
@@ -52,9 +46,6 @@ function LandingPage(){
 			to="/javaScript"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  JS
 		</NavLink>
@@ -62,9 +53,6 @@ function LandingPage(){
 			to="/python"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  Python
 		</NavLink>
@@ -72,9 +60,6 @@ function LandingPage(){
 			to="/sql"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  SQL
 		</NavLink>
@@ -82,9 +67,6 @@ function LandingPage(){
 			to="/java"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  Java
 		</NavLink>
@@ -92,16 +74,12 @@ function LandingPage(){
 			to="/cplus"
 			exact
 			style={linkStyles}
-			activeStyle={{
-			  background: "blue",
-			}}
 		  >
 		  C++
 		</NavLink>
         </div>
     </Header>
     </div>
-
     )
 }
 

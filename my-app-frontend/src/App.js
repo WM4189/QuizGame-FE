@@ -75,71 +75,73 @@ if(answer === questions[questionindex].correct_answer){
 
 
   return (
-    <div className="App">
-      <Switch>
-      <Route path="/html">
-        <Html handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/css">
-        <Css handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/javaScript">
-        <JavaScript handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/python">
-        <Python handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/sql">
-        <Sql handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/java">
-        <Java handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/cplus">
-        <Cplus handleAnswer={handleAnswer} 
-        questions={questions}
-        setQuestions={setQuestions} 
-        points={score} 
-        setPoints={setScore} />
-        </Route>
-        <Route path="/subjects">
-        <Subject />
-        </Route>
-        <Route path='/question'>
-          <QuestionForm /> 
-        </Route>
-        <Route path="/questionList">
-          <QuestionList handleAnswer={handleAnswer} setQuestions={setQuestions} questions={questions}/> 
-        </Route>
-        <Route exact path='/'>
-        <LandingPage />
-        </Route>
-      </Switch>
-    </div> 
+    <div className="mode">
+      <div className="App">
+        <Switch>
+        <Route path="/html">
+          <Html handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/css">
+          <Css handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/javaScript">
+          <JavaScript handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/python">
+          <Python handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/sql">
+          <Sql handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/java">
+          <Java handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/cplus">
+          <Cplus handleAnswer={handleAnswer} 
+          questions={questions}
+          setQuestions={setQuestions} 
+          points={score} 
+          setPoints={setScore} />
+          </Route>
+          <Route path="/subjects">
+          <Subject />
+          </Route>
+          <Route path='/question'>
+            <QuestionForm /> 
+          </Route>
+          <Route path="/questionList">
+            <QuestionList handleAnswer={handleAnswer} setQuestions={setQuestions} questions={questions}/> 
+          </Route>
+          <Route exact path='/'>
+          <LandingPage />
+          </Route>
+        </Switch>
+      </div> 
+    </div>
   );
 }
 
