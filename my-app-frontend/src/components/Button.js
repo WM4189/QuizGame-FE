@@ -1,35 +1,26 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
+const Button = props => {
+    const { disable, setDisable, handleAnswer, answer, index, questionindex} = props;
+    const [isActive, setActive] = useState(true);
 
-
-
-function Button({ disable, setDisable, handleAnswer, answer, index, questionindex}){
-    // reset, setReset, points,
-
-    const [isActive, setActive] = useState(true)
-
-
-function toggleClass(){
-    setActive(isActive => !isActive);
-    // console.log("THIS IS WORKING")
-    setDisable(disable => !disable)
-    
-}
-
+    function toggleClass(){
+        setActive(isActive => !isActive);
+        setDisable(disable => !disable);
+    }
 
     return(
         <button
-        id="the Button" 
-        className= {isActive ? "white_button" : "selected_answer"}
-        key={index} 
-        value={index}
-        disabled={disable}
-        onClick={() => {
-            handleAnswer(answer, questionindex);
-            toggleClass();
-           //potentially call toggleClass
-        }}>
-        {answer}
+            id="the Button" 
+            className= {isActive ? "white_button" : "selected_answer"}
+            key={index} 
+            value={index}
+            disabled={disable}
+            onClick={() => {
+                handleAnswer(answer, questionindex);
+                toggleClass();
+            }}>
+            {answer}
         </button>
     )
 }

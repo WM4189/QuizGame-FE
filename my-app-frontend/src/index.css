@@ -106,20 +106,3 @@ li:not(:last-child) {
   padding-bottom: 1rem;
   border-bottom: 3px solid black;
 }
-/* 
-#form{
-  position: relative; 
-  left:auto; 
-  right:auto;
-} */
-
-/* .mode{
-  background-color: #1a1919;
-  color: #999;
-}
-
-
-#mode{
-  background-color: #1a1919;
-  color: #999;
-} */

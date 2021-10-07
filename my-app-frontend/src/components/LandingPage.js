@@ -1,6 +1,6 @@
 import { Header, Icon } from 'semantic-ui-react'
 import { NavLink } from "react-router-dom";
-import React, { useState } from 'react';
+
 
 const linkStyles = {
     display: "inline-block",
@@ -10,15 +10,10 @@ const linkStyles = {
     background: "black",
     textDecoration: "none",
     color: "white"
-  };
-
+};
 
 function LandingPage(){
-   
-	
 
-
-// debugger; 
     return(  
         <div id="homeNav">
     <Header as='h2' icon>

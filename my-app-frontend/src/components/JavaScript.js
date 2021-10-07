@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import QuestionItem from "./QuestionItem";
 import { NavLink } from "react-router-dom";
 import Modal from "./Modal.js";
@@ -13,103 +13,76 @@ const linkStyles = {
     color: "white"
   };
 
+const JavaScript = props => {
+  const {questions, setQuestions, points, handleAnswer, setPoints} = props;
+  const [show, setShow ] = useState(false);
 
-function JavaScript({questions, setQuestions, points, handleAnswer, setPoints}){
-// const {prompt, answer1, answer2, answer3, answer4, correct_answer, id} = questions 
-//this is to show the modal; assuming we will de
-
-const [show, setShow ] = useState(false)
-
-// const [reset, setReset] = useState(true)
-
-// console.log(questions.length)
-
-
-
-    useEffect(() => {
-        fetch("http://localhost:9292/subject/1")
-        .then((r) => r.json())
-        .then((data) => {setQuestions(data.questions)
-        // console.log(data.questions)
-      })
-    }, []);
-  
-    
+  useEffect(() => {
+      fetch("http://localhost:9292/subject/1")
+      .then((r) => r.json())
+      .then((data) => {setQuestions(data.questions)
+    })
+  }, [setQuestions]);
 
   function handleDeleteClick(id) {
-    fetch(`http://localhost:9292/question/${id}`, {
-      method: "DELETE",
-    })
-      .then((r) => r.json())
-      .then(() => {
-        const updatedQuestions = questions.filter((q) => q.id !== id);
-        setQuestions(updatedQuestions);
-      });
-  }
+      fetch(`http://localhost:9292/question/${id}`, {
+        method: "DELETE",
+      })
+        .then((r) => r.json())
+        .then(() => {
+          const updatedQuestions = questions.filter((q) => q.id !== id);
+          setQuestions(updatedQuestions);
+        });
+    }
 
+  const questionItems = questions.map((q, index) => (
+    <QuestionItem
+      key={q.id}
+      question={q}
+      questionindex={index}
+      onDeleteClick={handleDeleteClick}
+      handleAnswer={handleAnswer}
+    />
+  ));
 
-
-//   const getSubject = (id) => {
-//     fetch(`http://localhost:9292/subject/${id}`)
-//     .then(resp => resp.json())
-//     .then(data => console.log(data))
-//   }
-//   getSubject(8)
-
-
-
-
-const questionItems = questions.map((q, index) => (
-  <QuestionItem
-    key={q.id}
-    question={q}
-    questionindex={index}
-    onDeleteClick={handleDeleteClick}
-    handleAnswer={handleAnswer}
-    // points={points}
-    // reset={reset}
-    // setReset={setReset}
-  />
-));
-
-
-
-// const buttonClass = points === 0 ? "white_button" : "selected_answer" 
- 
-    return (
-        <>
-        <NavLink
-			to="/"
-			exact
-			style={linkStyles}
-			// activeStyle={{
-			//   background: "blue",
-			// }}
-		  >
-		  Home
-		</NavLink>
-        <NavLink
-			to="/question"
-			exact
-			style={linkStyles}
-			// activeStyle={{
-			//   background: "blue",
-			// }}
-		  >
-		  Add Question
-		</NavLink>
-        <section>
-            <b><h1>JavaScript Quiz</h1></b>
-            <h3><ul>{questionItems}</ul></h3>
-            <button className="white_button" 
-            onClick={()=> setShow(show => !show)}>Submit Quiz</button>
-            <Modal onClose={()=> {setShow(show => !show);
-                                  setPoints(0);
-                                  }} questions = {questions} setShow={setShow} show={show} points={points}/>
-        </section>
-        </>
-    )
+  return (
+    <>
+      <NavLink
+        to="/"
+        exact
+        style={linkStyles}
+      >
+      Home
+      </NavLink>
+      <NavLink
+        to="/question"
+        exact
+        style={linkStyles}
+      >
+      Add Question
+      </NavLink>
+      <section>
+        <b><h1>JavaScript Quiz</h1></b>
+        <h3><ul>{questionItems}</ul></h3>
+        <button 
+        className="white_button" 
+        onClick={()=> setShow(show => !show)}
+        >
+        Submit Quiz
+        </button>
+        <Modal 
+          onClose={()=>{
+            setShow(show => !show)
+            setPoints(0)
+          }} 
+          setPoints={setPoints} 
+          questions = {questions} 
+          setShow={setShow} 
+          show={show} 
+          points={points}/>
+      </section>
+    </>
+  )
 }
-
 
 export default JavaScript;
