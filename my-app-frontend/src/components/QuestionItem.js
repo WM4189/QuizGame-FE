@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from './Button.js'
 
 const linkStyles = {
@@ -15,17 +15,21 @@ const linkStyles = {
 const QuestionItem = props => {
     const [ disable, setDisable ] = useState(false)
     const {question, onDeleteClick, questionindex, handleAnswer} = props 
-    const {prompt, answer1, answer2, answer3, answer4, id} = question
+    const {prompt, answer1, answer2, answer3, answer4, id, correct_answer} = question
     const answers = [answer1, answer2, answer3, answer4]
 
     const buttons = answers.map((answer, index) => (
-        <Button key={index} 
+        <Button 
+        key={index} 
         index={index} 
         handleAnswer={handleAnswer} 
         answer={answer} 
-        questionindex={questionindex}
+        correct_index={questionindex}
         disable={disable}
         setDisable={setDisable}
+        allAnswers={answers}
+        question={question}
+        correct_answer={correct_answer}
         />
     ));
 
@@ -38,7 +42,12 @@ const QuestionItem = props => {
             <b><h2>{prompt}</h2></b>
             <h5><em> Choose Your Answer:</em></h5>
             {buttons}
-            <button style={linkStyles} className='delete_button'onClick={handleDeleteClick}>Delete</button>
+            <button 
+            style={linkStyles} 
+            className='delete_button'
+            onClick={handleDeleteClick}
+            >Delete
+            </button>
         </li>
     )
 }

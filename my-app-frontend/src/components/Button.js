@@ -1,24 +1,27 @@
 import { useState } from 'react';
 
 const Button = props => {
-    const { disable, setDisable, handleAnswer, answer, index, questionindex} = props;
-    const [isActive, setActive] = useState(true);
+    const {disable, setDisable, handleAnswer, answer, index, correct_index, correct_answer} = props;
+    const [answerColor, setColor] = useState("white_button");
 
-    function toggleClass(){
-        setActive(isActive => !isActive);
-        setDisable(disable => !disable);
+    function handleColor(e){
+        if(e.target.innerText === correct_answer){
+            setColor("green_button");
+        }else{
+            setColor("red_button");
+        }
     }
 
     return(
         <button
-            id="the Button" 
-            className= {isActive ? "white_button" : "selected_answer"}
+            className= {answerColor}
             key={index} 
             value={index}
             disabled={disable}
-            onClick={() => {
-                handleAnswer(answer, questionindex);
-                toggleClass();
+            onClick={(e) => {
+                handleColor(e);
+                handleAnswer(answer, correct_index);
+                setDisable(disable => !disable);
             }}>
             {answer}
         </button>

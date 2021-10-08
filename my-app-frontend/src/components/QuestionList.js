@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import QuestionItem from './QuestionItem';
 
-function QuestionList({handleAnswer}){
-const [questions, setQuestions] = useState([]);
+function QuestionList({ handleAnswer}){
 
-useEffect(() => {
-    fetch("http://localhost:9292/questions/8")
-      .then((r) => r.json())
-      .then((questions) => {
-        setQuestions(questions);
-      });
-  }, []);
+  const [questions, setQuestions] = useState([]);
 
   function handleDeleteClick(id) {
     fetch(`http://localhost:9292/question/${id}`, {
@@ -25,11 +18,11 @@ useEffect(() => {
 
   const questionItems = questions.map((q, index) => (
     <QuestionItem
-    key={q.id}
-    questionindex={index}
-    question={q}
-    onDeleteClick={handleDeleteClick}
-    handleAnswer={handleAnswer}
+      key={q.id}
+      questionindex={index}
+      question={q}
+      onDeleteClick={handleDeleteClick}
+      handleAnswer={handleAnswer}
     />
   ));
 

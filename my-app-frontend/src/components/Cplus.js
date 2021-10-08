@@ -20,7 +20,8 @@ const Cplus = props => {
   useEffect(() => {
       fetch("http://localhost:9292/subject/7")
       .then((r) => r.json())
-      .then((data) => {setQuestions(data.questions)
+      .then((data) => {
+        setQuestions(data.questions);
     })
   }, [setQuestions]);
 
@@ -66,14 +67,14 @@ const Cplus = props => {
         <h3><ul>{questionItems}</ul></h3>
         <button 
         className="white_button" 
-        onClick={()=> setShow(show => !show)}
+        onClick={()=>setShow(show => !show)}
         >
         Submit Quiz
         </button>
         <Modal 
           onClose={()=>{
-            setShow(show => !show)
-            setPoints(0)
+            setShow(show => !show);
+            setPoints(0);
           }} 
           setPoints={setPoints} 
           questions = {questions} 

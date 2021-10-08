@@ -88,6 +88,39 @@ button:hover{
   background-color: #f7f720c2;
 }
 
+.green_button{
+  margin: auto;
+  display: flex ;
+  position: relative;
+  justify-content: center;
+  width: fit-content;
+  height: 2rem;
+  border-radius: 10px;
+  background: #2bf720c2;
+  color: rgb(25, 25, 25);
+  font-weight: 600;
+  border: 2px solid gray;
+  cursor: pointer;
+  outline: none;
+}
+
+.red_button{
+  margin: auto;
+  display: flex ;
+  position: relative;
+  justify-content: center;
+  width: fit-content;
+  height: 2rem;
+  border-radius: 10px;
+  background: #f72020c2;
+  color: rgb(25, 25, 25);
+  font-weight: 600;
+  border: 2px solid gray;
+  cursor: pointer;
+  outline: none;
+} 
+
+
 .selected_answer{
   margin: auto;
   display: flex ;

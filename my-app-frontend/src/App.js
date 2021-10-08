@@ -12,7 +12,6 @@ import QuestionForm from './components/QuestionForm.js';
 import LandingPage from './components/LandingPage.js';
 import QuestionList from './components/QuestionList';
 
-
 function App() {
   const [questions, setQuestions] = useState([]);
   const [score, setScore] = useState(0);
@@ -21,7 +20,6 @@ function App() {
     if(answer === questions[questionindex].correct_answer){
       setScore(score+1)
     }
-    console.log(score)
   }
 
   return (

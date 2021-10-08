@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 
 const Modal = props => {
     const history = useHistory();
-    const {show, points, questions, setPoints } = props;
+    const {show, points, questions, setPoints} = props;
     let total = (points/questions.length * 100).toFixed(1);
     
     if (!show){
@@ -14,9 +14,6 @@ const Modal = props => {
             // window.location.reload();
         }, 2000);
     }
-
-    console.log(points)
-    console.log(questions.length)
 
     const message = () =>{
         if (total >= 0 && total <= 60){

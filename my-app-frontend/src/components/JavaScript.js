@@ -42,6 +42,7 @@ const JavaScript = props => {
       questionindex={index}
       onDeleteClick={handleDeleteClick}
       handleAnswer={handleAnswer}
+      questions={questions}
     />
   ));
 
